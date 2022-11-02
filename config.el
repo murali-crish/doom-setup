@@ -54,3 +54,7 @@
 ;; they are implemented.
 (add-hook 'vue-mode-hook #'lsp!)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+(setq
+ projectile-project-search-path '("~/go/src/git.neds.sh/")
+ )
