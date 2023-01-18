@@ -11,7 +11,6 @@
 
 (package! vue-mode)
 (package! nvm)
-(package! protobuf-mode)
 (package! vimgolf)
 (package! nov)
 (package! tide)
