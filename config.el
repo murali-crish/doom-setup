@@ -59,3 +59,27 @@
 (setq
  projectile-project-search-path '("~/go/src/git.neds.sh/")
  )
+
+;; Set Indentation for CSS files to 2 spaces
+(after! css-mode
+  (setq css-indent-offset 2))
+
+;; Set Indentation for JS files to 2 spaces
+(after! javascript-mode
+  (setq javascript-indentation 2
+        js-indent-level 2))
+
+(after! typescript
+  (setq typescript-indent-level 2))
+
+(after! json-mode
+  (setq javascript-indentation 2
+        js-indent-level 2))
+
+;; Set Indentation for all web related pages
+(after! web-mode
+  (setq web-mode-engines-alist '(("django"."\\.html\\.tera\\'")))
+  (add-hook! web-mode
+             (setq web-mode-markup-indent-offset 2
+                   web-mode-css-indent-offset 2
+                   web-mode-code-indent-offset 2)))
