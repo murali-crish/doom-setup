@@ -17,6 +17,7 @@
 (package! prettier-js)
 (package! pdf-tools)
 (package! protobuf-mode)
+(package! dap-mode)
 
 ;; Fix for issue with magit in emacs 28. Remove it after doom emacs start supporting emacs 29 and upgrading emads
 (package! transient
