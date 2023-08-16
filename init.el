@@ -150,7 +150,7 @@
        (org                 ; organize your plain life in plain text
         +pretty
         +journal
-        +roam
+        +roam2
         +dragndrop
         +present)
        ;;php               ; perl's insecure younger brother
