@@ -16,7 +16,6 @@
 (package! tide)
 (package! prettier-js)
 (package! pdf-tools)
-(package! protobuf-mode)
 (package! dap-mode)
 
 ;; Fix for issue with magit in emacs 28. Remove it after doom emacs start supporting emacs 29 and upgrading emads
@@ -31,6 +30,7 @@
 (package! cider)
 (package! clj-refactor)
 (package! flycheck-clj-kondo)
+(package! nerd-icons)
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
