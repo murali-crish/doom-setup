@@ -31,11 +31,10 @@
 (package! clj-refactor)
 (package! flycheck-clj-kondo)
 (package! nerd-icons)
+(package! treemacs-nerd-icons)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 
-(package! vscode-dark-plus-theme
-  :recipe (:host github :repo "ianyepan/vscode-dark-plus-emacs-theme"))
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format

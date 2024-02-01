@@ -22,14 +22,14 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 ;;(setq doom-font (font-spec :family "Fira Code Retina" :size 12 :weight 'light))
-(setq doom-font (font-spec :family "Fira Code Retina" :size 12 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 13)
-      doom-big-font (font-spec :family "Fira Code Retina" :size 20 :weight 'light))
+;; (setq doom-font (font-spec :family "Fira Code Retina" :size 12 :weight 'light)
+;;      doom-variable-pitch-font (font-spec :family "Fira Code Retina" :size 13)
+;;      doom-big-font (font-spec :family "Fira Code Retina" :size 20 :weight 'light))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-city-lights)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -106,7 +106,32 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(use-package vscode-dark-plus-theme
+(use-package doom-themes
   :ensure t
   :config
-  (load-theme 'vscode-dark-plus t))
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  ;;(doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+(use-package treemacs-nerd-icons
+        :after treemacs
+        :config
+        (treemacs-load-theme "nerd-icons"))
+
+(use-package wakatime-mode
+  :ensure t)
+
+;;If you want to enable Wakatime in all buffers
+;;put at the end of file
+(global-wakatime-mode)
