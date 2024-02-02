@@ -129,9 +129,9 @@
         :config
         (treemacs-load-theme "nerd-icons"))
 
-(use-package wakatime-mode
-  :ensure t)
 
-;;If you want to enable Wakatime in all buffers
-;;put at the end of file
-(global-wakatime-mode)
+(use-package activity-watch-mode
+  :config
+  (setq activity-watch-api-host "http://localhost:5600"))
+
+(global-activity-watch-mode)
