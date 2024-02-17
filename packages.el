@@ -22,6 +22,8 @@
 (package! rjsx-mode)
 (package! skewer-mode)
 (package! tide)
+(package! tree-sitter)
+(package! tree-sitter-langs)
 (package! typescript-mode)
 (package! xref-js2)
 (package! vimgolf)

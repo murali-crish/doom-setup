@@ -106,10 +106,22 @@
 
 ;; Go - lsp-mode
 ;; Set up before-save hooks to format buffer and add/delete imports.
+(add-hook 'go-mode-hook #'lsp-deferred)
 (defun lsp-go-install-save-hooks ()
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+(after! lsp-mode
+  (setq lsp-go-use-gofumpt t)
+  (setq lsp-go-analyses '((fieldalignment . t)
+                          (nilness . t)
+                          (shadow . t)
+                          (unusedparams . t)
+                          (unusedwrite . t)
+                          (useany . t)
+                          (unusedvariable . t)))
+  )
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
