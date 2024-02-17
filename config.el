@@ -87,6 +87,20 @@
                    web-mode-css-indent-offset 2
                    web-mode-code-indent-offset 2)))
 
+;; lsp mode for auto completion
+(use-package lsp-mode)
+(add-hook 'prog-mode-hook #'lsp)
+
+;; DAP mode for debugging
+(use-package dap-mode
+  :config
+  (dap-auto-configure-mode)
+
+  :bind
+  (("<f7>" . dap-step-in)
+   ("<f8>" . dap-next)
+   ("<f9>" . dap-continue)))
+
 ;; Go Debugging
 (require 'dap-dlv-go)
 
