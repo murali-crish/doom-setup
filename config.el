@@ -56,7 +56,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(add-hook 'vue-mode-hook #'lsp!)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
 (setq
@@ -87,20 +86,6 @@
                    web-mode-css-indent-offset 2
                    web-mode-code-indent-offset 2)))
 
-;; lsp mode for auto completion
-(use-package lsp-mode)
-(add-hook 'prog-mode-hook #'lsp)
-
-;; DAP mode for debugging
-(use-package dap-mode
-  :config
-  (dap-auto-configure-mode)
-
-  :bind
-  (("<f7>" . dap-step-in)
-   ("<f8>" . dap-next)
-   ("<f9>" . dap-continue)))
-
 ;; Go Debugging
 (require 'dap-dlv-go)
 
@@ -121,7 +106,14 @@
                           (unusedwrite . t)
                           (useany . t)
                           (unusedvariable . t)))
-  )
+)
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
+(after! (treemacs projectile)
+  (treemacs-project-follow-mode 1)
+  (treemacs-follow-mode 1))
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
@@ -132,32 +124,10 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
-
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  ;;(doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
-(use-package treemacs-nerd-icons
-        :after treemacs
-        :config
-        (treemacs-load-theme "nerd-icons"))
-
-
 (use-package activity-watch-mode
   :config
   (setq activity-watch-api-host "http://localhost:5600"))
 
 (global-activity-watch-mode)
+
+(use-package! lsp-volar)

@@ -10,7 +10,6 @@
 ;(package! some-package)
 
 (package! all-the-icons)
-(package! coffee-mode)
 (package! dap-mode)
 (package! js2-mode)
 (package! js2-refactor)
@@ -19,16 +18,12 @@
 (package! npm-mode)
 (package! pdf-tools)
 (package! prettier-js)
-(package! rjsx-mode)
-(package! skewer-mode)
 (package! tide)
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! typescript-mode)
 (package! xref-js2)
 (package! vimgolf)
-(package! vue-mode)
-
 
 ;; Fix for issue with magit in emacs 28. Remove it after doom emacs start supporting emacs 29 and upgrading emads
 (package! transient
