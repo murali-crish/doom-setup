@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-city-lights)
+;;(setq doom-theme 'doom-city-lights)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -62,30 +62,6 @@
  projectile-project-search-path '("~/go/src/git.neds.sh/")
  )
 
-;; Set Indentation for CSS files to 2 spaces
-(after! css-mode
-  (setq css-indent-offset 2))
-
-;; Set Indentation for JS files to 2 spaces
-(after! javascript-mode
-  (setq javascript-indentation 2
-        js-indent-level 2))
-
-(after! typescript
-  (setq typescript-indent-level 2))
-
-(after! json-mode
-  (setq javascript-indentation 2
-        js-indent-level 2))
-
-;; Set Indentation for all web related pages
-(after! web-mode
-  (setq web-mode-engines-alist '(("django"."\\.html\\.tera\\'")))
-  (add-hook! web-mode
-             (setq web-mode-markup-indent-offset 2
-                   web-mode-css-indent-offset 2
-                   web-mode-code-indent-offset 2)))
-
 ;; Go Debugging
 (require 'dap-dlv-go)
 
@@ -106,7 +82,7 @@
                           (unusedwrite . t)
                           (useany . t)
                           (unusedvariable . t)))
-)
+  )
 
 (use-package treemacs-projectile
   :after (treemacs projectile))
@@ -127,7 +103,3 @@
 (use-package activity-watch-mode
   :config
   (setq activity-watch-api-host "http://localhost:5600"))
-
-(global-activity-watch-mode)
-
-(use-package! lsp-volar)
