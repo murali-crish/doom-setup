@@ -99,7 +99,3 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
-
-(use-package activity-watch-mode
-  :config
-  (setq activity-watch-api-host "http://localhost:5600"))
